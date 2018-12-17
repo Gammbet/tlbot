@@ -19,14 +19,47 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-
-
+  
+  
+  if(cmd === `${prefix}sayin`){
+    let botmessage = args.join(" ");
+    message.delete().catch();
+    message.channel.send(botmessage);
+    
+  }   
+  
+  if(cmd === `${prefix}warnn`){
+    let botmessage = args.join(" ");
+    message.delete().catch();
+    const embed = new RichEmbed()
+      .setTitle('Advertencia')
+      .setDescription(botmessage)
+      .setColor("#0xFF0000")
+    
+    message.channel.send({embed});
+    
+  }   
+  
+  if(cmd === `${prefix}comuni`){
+    let botmessage = args.join(" ");
+    message.delete().catch();
+    const embed = new RichEmbed()
+      .setTitle('Comunicado')
+      .setDescription(botmessage)
+      .addField("Saludos Cordiales - Administración Territorios Latinos", "@everyone", true)
+      .setColor("#0xFF0000")
+      
+    
+    message.channel.send({embed});
+    
+  }   
+ 
   if(cmd === `${prefix}players`){
     snekfetch.get(api).then(r => {
       const embed = new RichEmbed() // Creates the embed
         .setTitle('Prisioneros en la isla:') // Sets the title of the embed
         .setDescription(r.body.data.attributes.players)
-        .setColor("#0xFF0000")
+        .setColor("#0x00FF00")
 
         message.channel.send({embed}); // Sets the description of the embed (e.g. 7)
 
@@ -38,7 +71,7 @@ bot.on("message", async message => {
     let botembed = new Discord.RichEmbed()
     .setTitle("IP del Servidor")
     .setDescription("172.107.16.173:28102")
-    .setColor("#0xFF0000")
+    .setColor("#0xFF8000")
 
     return message.channel.send(botembed);
   }
@@ -51,6 +84,20 @@ bot.on("message", async message => {
     .setDescription("Página Web oficial de la comunidad")
     .addField("Apoyo y Soporte", "Chatea Online 24/7 con la administracón", true)
     .setColor("#0x00AE86")
+
+    return message.channel.send(botembed);
+  }
+
+  if(cmd === `${prefix}restart`){
+
+    let botembed = new Discord.RichEmbed()
+    .setTitle("Horarios de Restart")
+    .setDescription("El Servidor reinicia en los siguientes horarios:")
+    .addField("Nº1", "03:00", true)
+    .addField("Nº2", "09:00", true)
+    .addField("Nº3", "15:00", true)
+    .addField("Nº4", "21:00", true)
+    .setColor("#0xFF8000")
 
     return message.channel.send(botembed);
   }
@@ -79,7 +126,7 @@ bot.on("message", async message => {
     .addField("Zombies", "Max", true)
     .addField("Drops", "x1", true)
     .addField("Autos", "x1", true)
-    .setColor("#0xFF0000")
+    .setColor("#0xFF8000")
 
     return message.channel.send(botembed);
   }
@@ -93,7 +140,7 @@ bot.on("message", async message => {
     .addField("Marcas Azules", "Policías", true)
     .addField("Marcas Rojas", "Zona KOS", true)
     .setImage("https://i.imgur.com/kCxCcM7.png")
-    .setColor("#0xFF0000")
+    .setColor("#0xFF8000")
 
     return message.channel.send(botembed);
   }
