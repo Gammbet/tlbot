@@ -1,0 +1,24 @@
+{
+  "name": "scumtl",
+  "version": "1.0.0",
+  "description": "scum territorios latinos bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "8.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gammbet/tlbot.git"
+  },
+  "author": "Gammbet",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "snekfetch": "^4.0.4",
+    "express": "^4.16.4"
+  }
+}
